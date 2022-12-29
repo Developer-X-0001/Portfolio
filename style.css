@@ -22,6 +22,10 @@ body {
 #rating:hover {
     color: #f0f0f0;
 }
+#rating:hover {
+    color: #f0f0f0;
+    cursor: pointer;
+}
 #moon {
     position: relative;
     width: 100%;
@@ -50,7 +54,7 @@ body {
     margin: 50px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    box-shadow: 0 35px rgba(0,0,0,0.1);
+    box-shadow: 15px 15px 10px rgba(0,0,0,0.1);
 }
 .container .left_Side {
     position: relative;
@@ -90,6 +94,7 @@ body {
     line-height: 1.4em;
 }
 .profileText h2 span {
+    text-transform: capitalize;
     font-size: 0.8em;
     font-weight: 300;
 }
@@ -238,30 +243,12 @@ p {
     font-size: 18px;
     width: 20px;
 }
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #011e2b;
-    }
-    .container .right_Side {
-        background: #081921;
-    }
-    .container .right_Side h2 {
-        color: #03a9f4;
-    }
-    p {
-        color: #f0f0f0;
-    }
-    .about-interests ul li {
-        color: #f0f0f0;
-    }
-    .about-skills .box .percent {
-        background: #122e3b;
-    }
-}
 /* Darkmode CSS Properties */
 .darkmode {
     background: #011e2b;
+}
+.darkmode .profileText .imgBx {
+    border:  5px solid #011e2b;
 }
 .darkmode .container .right_Side {
     background: #081921;
@@ -280,9 +267,12 @@ p {
 }
 /* ----------------------- */
 
-/* Darkmode CSS Properties */
+/* LightMode CSS Properties */
 .lightmode {
     background: lightblue;
+}
+.lightmode .profileText .imgBx {
+    border:  5px solid lightblue;
 }
 .lightmode .container .right_Side {
     background: #ffffff;
@@ -310,6 +300,10 @@ p {
         margin-bottom: -80px;
     }
     .container {
+        margin: 10px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .ratingCont {
         margin: 10px;
         grid-template-columns: repeat(1, 1fr);
     }
