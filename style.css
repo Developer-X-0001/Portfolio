@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    transition: background 2s;
 }
 body {
     background: lightblue;
@@ -12,6 +11,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow: auto;
+    transition: background 0.75s;
 }
 #rating {
     font-size: 20px;
@@ -21,10 +22,81 @@ body {
 }
 #rating:hover {
     color: #f0f0f0;
-}
-#rating:hover {
-    color: #f0f0f0;
     cursor: pointer;
+}
+#rating:active {
+    color: #848c90;
+}
+.showRatings {
+    visibility: hidden;
+}
+.ratings {
+    position: absolute;
+    width: 1049px;
+    height: 1108px;
+    overflow-y: auto;
+    background: #ffffff;
+    margin: 50px;
+    padding: 15px;
+    box-shadow: 15px 15px 10px rgba(0,0,0,0.1);
+}
+.ratings::-webkit-scrollbar {
+    width: 10px;
+    background: #003147;
+}
+.ratings::-webkit-scrollbar-thumb {
+    background-color: #03a9f4;
+}
+.ratings #back {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    background: #03a9f4;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.ratings #back:hover {
+    background: #47b6e9;
+}
+.ratings #back:active {
+    background: #0276ac;
+}
+.ratings section {
+    padding: 15px 15px;
+    display: flex;
+    transition: background 1s;
+}
+.ratings section:hover {
+    background: #003147;
+}
+.ratings h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.ratings section > img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+.ratings section .review h6 img {
+    width: 20px;
+    transform: translateY(25%);
+}
+.ratings section .review {
+    margin-left: 20px;
+}
+.ratings section span .stars {
+    color: #ffb33e;
+}
+.ratings h6 {
+    font-size: 15px;
+    color: #62646a;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.ratings section p {
+    color: black;
 }
 #moon {
     position: relative;
@@ -75,6 +147,7 @@ body {
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
+    transition: border 2s;
 }
 .profileText .imgBx img {
     position: absolute;
@@ -167,6 +240,7 @@ body {
     position: relative;
     background: #ffffff;
     padding: 40px;
+    transition: background 0.75s;
 }
 .about {
     margin-bottom: 50px;
@@ -179,9 +253,11 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
+    transition: color 0.75s;
 }
 p {
     color: #333333;
+    transition: color 0.75s;
 }
 .about .box {
     display: flex;
@@ -220,6 +296,7 @@ p {
     width: 100%;
     height: 10px;
     background: #f0f0f0;
+    transition: background 0.75s;
 }
 .about-skills .box .percent div {
     position: absolute;
@@ -265,6 +342,24 @@ p {
 .darkmode .about-skills .box .percent {
     background: #122e3b;
 }
+.darkmode .ratings {
+    background: #081921;
+}
+.darkmode .ratings > hr {
+    border-color: #011e2b;
+}
+.darkmode .ratings p {
+    color: #ffffff;
+}
+.darkmode .ratings h2 {
+    color: #03a9f4;
+}
+.darkmode .ratings h6 {
+    color: #848c90;
+}
+.darkmode .ratings h1 {
+    color: #03a9f4;
+}
 /* ----------------------- */
 
 /* LightMode CSS Properties */
@@ -289,6 +384,30 @@ p {
 .lightmode .about-skills .box .percent {
     background: #f0f0f0;
 }
+.lightmode .ratings {
+    background: #ffffff;
+}
+.lightmode .ratings > hr {
+    border-color: #f0f0f0;
+}
+.lightmode .ratings section:hover {
+    background: #e0e0e0;
+}
+.lightmode .ratings::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+.lightmode .ratings p {
+    color: #000000;
+}
+.lightmode .ratings h2 {
+    color: #03a9f4;
+}
+.lightmode .ratings h6 {
+    color: #a0a0a0;
+}
+.lightmode .ratings h1 {
+    color: #03a9f4;
+}
 /* ----------------------- */
 
 @media (max-width: 1000px) {
@@ -299,11 +418,31 @@ p {
         position: relative;
         margin-bottom: -80px;
     }
-    .container {
-        margin: 10px;
-        grid-template-columns: repeat(1, 1fr);
+    .ratings {
+        width: 98%;
+        padding: 20px;
     }
-    .ratingCont {
+    .ratings > hr {
+        border-color: #ffffff00;
+        margin-bottom: -20px;
+    }
+    .ratings section > img {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+    .ratings h1 {
+        margin-bottom: 20px;
+    }
+    .ratings section {
+        margin: 5px;
+        margin-top: -15px;
+        display: inline-block;
+        text-align: center;
+        border-bottom: 1px solid silver;
+        padding-bottom: 15px;
+    }
+    .container {
         margin: 10px;
         grid-template-columns: repeat(1, 1fr);
     }
@@ -318,6 +457,10 @@ p {
     }
     .about .box .year_company {
         margin-bottom: 5px;
+    }
+    .ratings > hr {
+        border-color: #ffffff00;
+        margin-bottom: -20px;
     }
     .about-interests ul {
         grid-template-columns: repeat(1, 1fr);
